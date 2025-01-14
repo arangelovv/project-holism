@@ -7,7 +7,17 @@ export const routes: Routes = [
     redirectTo: "meals",
   },
   {
+    path: "home",
+    loadComponent: () =>
+      import("./features/meals/meals.component").then((c) => c.MealsComponent),
+  },
+  {
     path: "meals",
+    loadComponent: () =>
+      import("./features/meals/meals.component").then((c) => c.MealsComponent),
+  },
+  {
+    path: "exercises",
     loadComponent: () =>
       import("./features/meals/meals.component").then((c) => c.MealsComponent),
   },
