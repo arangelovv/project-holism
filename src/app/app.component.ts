@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from "@angular/core";
+import { CoreComponent } from "./core/core/core.component";
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  selector: "app-root",
+  imports: [CoreComponent],
+  templateUrl: "./app.component.html",
 })
-export class AppComponent {
-  title = 'project-holism';
-}
+export class AppComponent {}
