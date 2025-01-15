@@ -1,6 +1,31 @@
-<div id="sidebar-container" class="w-full h-full border-r border-gray-300">
-  <div id="sidebar-app-title" class="px-2 py-2">
-    <span class="font-bold text-xl text-slate-700">Project Holism</span>
+<div
+  id="sidebar-container"
+  class="w-full h-full border-t 2xl:border-r border-gray-300"
+>
+  <div id="sidebar-app-title" class="px-2 py-2 hidden 2xl:block">
+    <span class="font-bold text-slate-700 text-base md:text-sm lg:text-xl"
+      >Project Holism</span
+    >
+  </div>
+  <div
+    id="sidebar-nav-elements"
+    class="flex flex-row justify-between px-2 py-2 gap-y-3 2xl:flex-col"
+  >
+    <app-nav-button title="Home" icon="home" route="/home" />
+    <app-nav-button title="Meals" icon="food_bank" route="/meals" />
+    <app-nav-button
+      title="Exercises"
+      icon="fitness_center"
+      route="/exercises"
+    />
+  </div>
+</div>
+
+<!-- <div id="sidebar-container" class="w-full h-full border-r border-gray-300">
+  <div id="sidebar-app-title" class="px-2 py-2 hidden 2xl:block">
+    <span class="font-bold text-slate-700 text-base md:text-sm lg:text-xl"
+      >Project Holism</span
+    >
   </div>
   <div id="sidebar-nav-elements" class="flex flex-col px-2 py-2 gap-y-3">
     <app-nav-button title="Home" icon="home" route="/home" />
@@ -11,4 +36,4 @@
       route="/exercises"
     />
   </div>
-</div>
+</div> -->
