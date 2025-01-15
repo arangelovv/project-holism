@@ -9,7 +9,7 @@ export const routes: Routes = [
   {
     path: "home",
     loadComponent: () =>
-      import("./features/meals/meals.component").then((c) => c.MealsComponent),
+      import("./features/home/home.component").then((c) => c.HomeComponent),
   },
   {
     path: "meals",
@@ -19,6 +19,8 @@ export const routes: Routes = [
   {
     path: "exercises",
     loadComponent: () =>
-      import("./features/meals/meals.component").then((c) => c.MealsComponent),
+      import("./features/exercises/exercises.component").then(
+        (c) => c.ExercisesComponent
+      ),
   },
 ];
