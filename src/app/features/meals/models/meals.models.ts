@@ -1,5 +1,6 @@
 export const meals = [
   {
+    id: 1,
     mealName: "High-Protein Oatmeal",
     mealTag: "Breakfast",
     mealPrepTime: "5min",
@@ -7,8 +8,27 @@ export const meals = [
     mealProtein: 25,
     mealCarbs: 40,
     mealFats: 5,
+    mealIngridients: [
+      {
+        ingridient: "Oats",
+        grams: 20,
+      },
+      {
+        ingridient: "Whey Protein",
+        grams: 30,
+      },
+      {
+        ingridient: "Almond milk",
+        grams: 200,
+      },
+      {
+        ingridient: "Blueberries",
+        grams: 100,
+      },
+    ],
   },
   {
+    id: 2,
     mealName: "Scrambled Eggs & Avocado Toast",
     mealTag: "Breakfast",
     mealPrepTime: "10min",
@@ -18,6 +38,7 @@ export const meals = [
     mealFats: 22,
   },
   {
+    id: 3,
     mealName: "Cottage Cheese & Pineapple Bowl",
     mealTag: "Breakfast",
     mealPrepTime: "3min",
@@ -27,6 +48,7 @@ export const meals = [
     mealFats: 3,
   },
   {
+    id: 4,
     mealName: "Spinach & Feta Egg White Omelette",
     mealTag: "Breakfast",
     mealPrepTime: "10min",
@@ -36,6 +58,7 @@ export const meals = [
     mealFats: 6,
   },
   {
+    id: 5,
     mealName: "Peanut Butter & Banana Smoothie",
     mealTag: "Breakfast",
     mealPrepTime: "5min",
@@ -45,6 +68,7 @@ export const meals = [
     mealFats: 7,
   },
   {
+    id: 6,
     mealName: "Smoked Salmon on Rye Bread",
     mealTag: "Breakfast",
     mealPrepTime: "5min",
@@ -54,6 +78,7 @@ export const meals = [
     mealFats: 7,
   },
   {
+    id: 7,
     mealName: "Protein Pancakes",
     mealTag: "Breakfast",
     mealPrepTime: "15min",
@@ -63,6 +88,7 @@ export const meals = [
     mealFats: 4,
   },
   {
+    id: 8,
     mealName: "Greek Yogurt Parfait",
     mealTag: "Breakfast",
     mealPrepTime: "5min",
@@ -72,6 +98,7 @@ export const meals = [
     mealFats: 4,
   },
   {
+    id: 9,
     mealName: "Turkey & Egg Breakfast Wrap",
     mealTag: "Breakfast",
     mealPrepTime: "10min",
@@ -81,6 +108,7 @@ export const meals = [
     mealFats: 10,
   },
   {
+    id: 10,
     mealName: "Avocado & Egg Bowl",
     mealTag: "Breakfast",
     mealPrepTime: "10min",
@@ -90,6 +118,7 @@ export const meals = [
     mealFats: 18,
   },
   {
+    id: 11,
     mealName: "Apple & Almond Butter Toast",
     mealTag: "Breakfast",
     mealPrepTime: "5min",
@@ -99,6 +128,7 @@ export const meals = [
     mealFats: 7,
   },
   {
+    id: 12,
     mealName: "Chia Pudding",
     mealTag: "Breakfast",
     mealPrepTime: "10min",
@@ -108,6 +138,7 @@ export const meals = [
     mealFats: 12,
   },
   {
+    id: 13,
     mealName: "Protein French Toast",
     mealTag: "Breakfast",
     mealPrepTime: "15min",
@@ -117,6 +148,7 @@ export const meals = [
     mealFats: 10,
   },
   {
+    id: 14,
     mealName: "Tuna & Avocado Crackers",
     mealTag: "Breakfast",
     mealPrepTime: "5min",
@@ -126,6 +158,7 @@ export const meals = [
     mealFats: 7,
   },
   {
+    id: 15,
     mealName: "High-Protein Smoothie Bowl",
     mealTag: "Breakfast",
     mealPrepTime: "5min",
@@ -135,6 +168,7 @@ export const meals = [
     mealFats: 14,
   },
   {
+    id: 16,
     mealName: "Egg & Spinach Breakfast Muffins",
     mealTag: "Breakfast",
     mealPrepTime: "20min",
@@ -144,6 +178,7 @@ export const meals = [
     mealFats: 12,
   },
   {
+    id: 17,
     mealName: "Protein Overnight Oats",
     mealTag: "Breakfast",
     mealPrepTime: "10min",
@@ -153,6 +188,7 @@ export const meals = [
     mealFats: 5,
   },
   {
+    id: 18,
     mealName: "Turkey Bacon & Egg Sandwich",
     mealTag: "Breakfast",
     mealPrepTime: "10min",
@@ -162,6 +198,7 @@ export const meals = [
     mealFats: 8,
   },
   {
+    id: 19,
     mealName: "Tofu Scramble & Veggies",
     mealTag: "Breakfast",
     mealPrepTime: "15min",
@@ -171,6 +208,7 @@ export const meals = [
     mealFats: 8,
   },
   {
+    id: 20,
     mealName: "Berry Protein Waffles",
     mealTag: "Breakfast",
     mealPrepTime: "15min",
@@ -180,6 +218,7 @@ export const meals = [
     mealFats: 5,
   },
   {
+    id: 21,
     mealName: "Grilled Chicken Salad",
     mealTag: "Lunch",
     mealPrepTime: "15min",
@@ -189,6 +228,7 @@ export const meals = [
     mealFats: 10,
   },
   {
+    id: 22,
     mealName: "Quinoa & Salmon Bowl",
     mealTag: "Lunch",
     mealPrepTime: "20min",
@@ -198,6 +238,7 @@ export const meals = [
     mealFats: 15,
   },
   {
+    id: 23,
     mealName: "Turkey & Sweet Potato",
     mealTag: "Lunch",
     mealPrepTime: "25min",
@@ -207,6 +248,7 @@ export const meals = [
     mealFats: 8,
   },
   {
+    id: 24,
     mealName: "Tuna Salad Wrap",
     mealTag: "Lunch",
     mealPrepTime: "10min",
@@ -216,6 +258,7 @@ export const meals = [
     mealFats: 7,
   },
   {
+    id: 25,
     mealName: "Chicken & Brown Rice Bowl",
     mealTag: "Lunch",
     mealPrepTime: "25min",
@@ -225,6 +268,7 @@ export const meals = [
     mealFats: 7,
   },
   {
+    id: 26,
     mealName: "Turkey Burger Bowl",
     mealTag: "Lunch",
     mealPrepTime: "20min",
@@ -234,6 +278,7 @@ export const meals = [
     mealFats: 20,
   },
   {
+    id: 27,
     mealName: "Grilled Shrimp & Couscous",
     mealTag: "Lunch",
     mealPrepTime: "20min",
@@ -243,6 +288,7 @@ export const meals = [
     mealFats: 5,
   },
   {
+    id: 28,
     mealName: "Teriyaki Chicken Bowl",
     mealTag: "Lunch",
     mealPrepTime: "25min",
@@ -252,6 +298,7 @@ export const meals = [
     mealFats: 5,
   },
   {
+    id: 29,
     mealName: "Spicy Chicken & Veggie Stir-Fry",
     mealTag: "Lunch",
     mealPrepTime: "20min",
@@ -261,6 +308,7 @@ export const meals = [
     mealFats: 7,
   },
   {
+    id: 30,
     mealName: "Turkey Meatball Zoodles",
     mealTag: "Lunch",
     mealPrepTime: "30min",
@@ -270,6 +318,7 @@ export const meals = [
     mealFats: 8,
   },
   {
+    id: 31,
     mealName: "Lentil & Chicken Soup",
     mealTag: "Lunch",
     mealPrepTime: "30min",
@@ -279,6 +328,7 @@ export const meals = [
     mealFats: 8,
   },
   {
+    id: 32,
     mealName: "Beef & Quinoa Bowl",
     mealTag: "Lunch",
     mealPrepTime: "25min",
@@ -288,6 +338,7 @@ export const meals = [
     mealFats: 21,
   },
   {
+    id: 33,
     mealName: "Salmon & Asparagus Plate",
     mealTag: "Lunch",
     mealPrepTime: "20min",
@@ -297,6 +348,7 @@ export const meals = [
     mealFats: 15,
   },
   {
+    id: 34,
     mealName: "Grilled Chicken & Hummus Wrap",
     mealTag: "Lunch",
     mealPrepTime: "10min",
@@ -306,6 +358,7 @@ export const meals = [
     mealFats: 9,
   },
   {
+    id: 35,
     mealName: "Cod & Vegetable Bowl",
     mealTag: "Lunch",
     mealPrepTime: "20min",
@@ -315,6 +368,7 @@ export const meals = [
     mealFats: 5,
   },
   {
+    id: 36,
     mealName: "Baked Chicken Thighs & Rice",
     mealTag: "Lunch",
     mealPrepTime: "40min",
@@ -324,6 +378,7 @@ export const meals = [
     mealFats: 12,
   },
   {
+    id: 37,
     mealName: "Vegan Tofu & Quinoa Bowl",
     mealTag: "Lunch",
     mealPrepTime: "20min",
@@ -333,6 +388,7 @@ export const meals = [
     mealFats: 8,
   },
   {
+    id: 38,
     mealName: "Grilled Steak & Sweet Potato",
     mealTag: "Lunch",
     mealPrepTime: "30min",
@@ -342,6 +398,7 @@ export const meals = [
     mealFats: 10,
   },
   {
+    id: 39,
     mealName: "Black Bean & Chicken Burrito",
     mealTag: "Lunch",
     mealPrepTime: "20min",
@@ -351,6 +408,7 @@ export const meals = [
     mealFats: 6,
   },
   {
+    id: 40,
     mealName: "Turkey & Rice Stuffed Peppers",
     mealTag: "Lunch",
     mealPrepTime: "40min",

@@ -5,6 +5,7 @@
     @for (item of meals; track item.mealName) {
     <div class="w-full">
       <app-meal-card
+        [mealId]="item.id"
         [mealName]="item.mealName"
         [mealTag]="item.mealTag"
         [mealPrepTime]="item.mealPrepTime"
