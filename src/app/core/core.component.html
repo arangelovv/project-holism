@@ -1,11 +1,11 @@
 @if (screenWidth <= 1366 ){
 <div class="flex flex-col w-full h-full bg-transparent">
-  @if(!isHomeRoute){
+  @if(showToolbar){
   <div class="static">
     <app-toolbar />
   </div>
   }
-  <div class="overflow-auto">
+  <div class="overflow-auto grow">
     <router-outlet />
   </div>
   <div class="w-full static">
@@ -18,7 +18,7 @@
     <app-sidebar />
   </div>
   <div class="flex flex-col grow">
-    @if(!isHomeRoute){
+    @if(showToolbar){
     <app-toolbar />
     }
     <div class="overflow-auto">
