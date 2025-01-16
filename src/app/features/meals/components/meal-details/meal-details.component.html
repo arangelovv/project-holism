@@ -12,21 +12,8 @@
       }}</span>
     </div>
   </div>
-  <div
-    id="tag"
-    class="w-max h-max px-1 py-0.5 rounded-lg bg-indigo-300 text-slate-900 text-xs font-medium"
-    [ngClass]="{
-      'bg-indigo-300': mealDetails.mealTag === 'Breakfast',
-      'bg-sky-300': mealDetails.mealTag === 'Lunch',
-      'bg-emerald-300': mealDetails.mealTag === 'Dinner',
-      'bg-gray-300':
-        mealDetails.mealTag !== 'Breakfast' &&
-        mealDetails.mealTag !== 'Lunch' &&
-        mealDetails.mealTag !== 'Dinner'
-    }"
-  >
-    {{ mealDetails.mealTag }}
-  </div>
+  <app-meal-tag [mealTag]="mealDetails.mealTag" />
+
   <div class="py-2 border-t border-gray-300 grow">
     <div class="flex flex-col gap-1 text-slate-800 font-semibold">
       @for (ingredient of mealDetails.mealIngridients; track $index) {

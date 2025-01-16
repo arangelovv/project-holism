@@ -2,10 +2,11 @@ import { Component, inject } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { meals } from "../../models/meals.models";
 import { NgClass } from "@angular/common";
+import { MealTagComponent } from "../meal-tag/meal-tag.component";
 
 @Component({
   selector: "app-meal-details",
-  imports: [NgClass],
+  imports: [NgClass, MealTagComponent],
   templateUrl: "./meal-details.component.html",
 })
 export class MealDetailsComponent {

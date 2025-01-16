@@ -7,21 +7,7 @@
       <span id="meal-name" class="text-slate-800 text-sm font-semibold">{{
         mealName()
       }}</span>
-      <div
-        id="tag"
-        class="w-max h-max px-1 py-0.5 rounded-lg bg-indigo-300 text-slate-900 text-xs font-medium"
-        [ngClass]="{
-          'bg-indigo-300': mealTag() === 'Breakfast',
-          'bg-sky-300': mealTag() === 'Lunch',
-          'bg-emerald-300': mealTag() === 'Dinner',
-          'bg-gray-300':
-            mealTag() !== 'Breakfast' &&
-            mealTag() !== 'Lunch' &&
-            mealTag() !== 'Dinner'
-        }"
-      >
-        {{ mealTag() }}
-      </div>
+      <app-meal-tag [mealTag]="mealTag()" />
     </div>
     <div class="flex flex-row items-center">
       <span class="material-symbols-outlined text-slate-500 text-base">

@@ -1,9 +1,11 @@
 import { Component, input } from "@angular/core";
 import { NgClass } from "@angular/common";
 import { RouterLink } from "@angular/router";
+import { MealTagComponent } from "../meal-tag/meal-tag.component";
+
 @Component({
   selector: "app-meal-card",
-  imports: [NgClass, RouterLink],
+  imports: [NgClass, RouterLink, MealTagComponent],
   templateUrl: "./meal-card.component.html",
 })
 export class MealCardComponent {
