@@ -36,6 +36,20 @@ export const meals = [
     mealProtein: 20,
     mealCarbs: 15,
     mealFats: 22,
+    mealIngridients: [
+      {
+        ingridient: "Eggs",
+        grams: 150,
+      },
+      {
+        ingridient: "Bread 1 slice",
+        grams: 40,
+      },
+      {
+        ingridient: "Avocado",
+        grams: 50,
+      },
+    ],
   },
   {
     id: 3,

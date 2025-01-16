@@ -5,6 +5,8 @@ import { NgClass } from "@angular/common";
 import { MealTagComponent } from "../meal-tag/meal-tag.component";
 import { ToolbarComponent } from "../../../../shared/components/toolbar/toolbar.component";
 import { MealDetailToolbarComponent } from "./meal-detail-toolbar/meal-detail-toolbar.component";
+import { IngridientChipComponent } from "./ingridient-chip/ingridient-chip.component";
+
 @Component({
   selector: "app-meal-details",
   imports: [
@@ -12,6 +14,7 @@ import { MealDetailToolbarComponent } from "./meal-detail-toolbar/meal-detail-to
     MealTagComponent,
     ToolbarComponent,
     MealDetailToolbarComponent,
+    IngridientChipComponent,
   ],
   templateUrl: "./meal-details.component.html",
 })
