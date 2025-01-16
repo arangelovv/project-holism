@@ -1,0 +1,28 @@
+<app-toolbar>
+  <div
+    routerLink="/meals"
+    class="flex flex-row items-center pr-2 md:pr-4 cursor-pointer"
+  >
+    <span class="material-symbols-outlined text-slate-800 text-base">
+      arrow_back
+    </span>
+  </div>
+  <div class="flex flex-row gap-2 grow">
+    <p class="text-sm text-slate-800">Serving Size:</p>
+    <input
+      [value]="servingSize()"
+      (input)="onInput($event)"
+      type="number"
+      class="w-8 border rounded-md border-gray-400 bg-transparent text-center leading-none text-sm"
+    />
+  </div>
+  <div
+    class="flex flex-row items-center gap-2 pl-2 md:pl-4 border-l border-gray-300"
+  >
+    <button
+      class="flex flex-row items-center gap-1 bg-indigo-300 rounded-full text-center leading-none text-slate-800 text-sm font-semibold p-1"
+    >
+      <span class="material-symbols-outlined text-slate-800"> add_box </span>
+    </button>
+  </div>
+</app-toolbar>
