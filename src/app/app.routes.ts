@@ -20,7 +20,7 @@ export const routes: Routes = [
     path: "meal-details/:id",
     loadComponent: () =>
       import(
-        "./features/meals/components/meal-details/meal-details.component"
+        "./features/meals/components/meal-details-view/meal-details.component"
       ).then((c) => c.MealDetailsComponent),
   },
   {

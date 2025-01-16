@@ -1,7 +1,7 @@
 import { Component, HostListener } from "@angular/core";
 import { NavigationEnd, RouterOutlet } from "@angular/router";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
-import { ToolbarComponent } from "./components/toolbar/toolbar.component";
+import { ToolbarComponent } from "../shared/components/toolbar/toolbar.component";
 import { Router } from "@angular/router";
 
 @Component({
