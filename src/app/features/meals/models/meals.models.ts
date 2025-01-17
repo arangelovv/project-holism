@@ -60,6 +60,16 @@ export const meals = [
     mealProtein: 24,
     mealCarbs: 20,
     mealFats: 3,
+    mealIngridients: [
+      {
+        ingridient: "Cottage cheese (low-fat)",
+        grams: 200,
+      },
+      {
+        ingridient: "Pineapple chunks",
+        grams: 100,
+      }
+    ],
   },
   {
     id: 4,
@@ -70,6 +80,20 @@ export const meals = [
     mealProtein: 25,
     mealCarbs: 2,
     mealFats: 6,
+    mealIngridients: [
+      {
+        ingridient: "Egg whites",
+        grams: 200,
+      },
+      {
+        ingridient: "Spinach",
+        grams: 50,
+      },
+      {
+        ingridient: "Feta cheese",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 5,
@@ -80,6 +104,24 @@ export const meals = [
     mealProtein: 27,
     mealCarbs: 35,
     mealFats: 7,
+    mealIngridients: [
+      {
+        ingridient: "Banana",
+        grams: 100,
+      },
+      {
+        ingridient: "Peanut butter",
+        grams: 10,
+      },
+      {
+        ingridient: "Almond milk",
+        grams: 200,
+      },
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 6,
@@ -90,6 +132,12 @@ export const meals = [
     mealProtein: 16,
     mealCarbs: 12,
     mealFats: 7,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 7,
@@ -100,6 +148,12 @@ export const meals = [
     mealProtein: 30,
     mealCarbs: 25,
     mealFats: 4,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 8,
@@ -110,6 +164,12 @@ export const meals = [
     mealProtein: 15,
     mealCarbs: 25,
     mealFats: 4,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 9,
@@ -120,6 +180,12 @@ export const meals = [
     mealProtein: 22,
     mealCarbs: 20,
     mealFats: 10,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 10,
@@ -130,6 +196,12 @@ export const meals = [
     mealProtein: 15,
     mealCarbs: 5,
     mealFats: 18,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 11,
@@ -140,6 +212,12 @@ export const meals = [
     mealProtein: 5,
     mealCarbs: 28,
     mealFats: 7,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 12,
@@ -150,6 +228,12 @@ export const meals = [
     mealProtein: 10,
     mealCarbs: 12,
     mealFats: 12,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 13,
@@ -160,6 +244,12 @@ export const meals = [
     mealProtein: 30,
     mealCarbs: 35,
     mealFats: 10,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 14,
@@ -170,6 +260,12 @@ export const meals = [
     mealProtein: 18,
     mealCarbs: 18,
     mealFats: 7,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 15,
@@ -180,6 +276,12 @@ export const meals = [
     mealProtein: 33,
     mealCarbs: 62,
     mealFats: 14,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 16,
@@ -190,6 +292,12 @@ export const meals = [
     mealProtein: 28,
     mealCarbs: 2,
     mealFats: 12,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 17,
@@ -200,6 +308,12 @@ export const meals = [
     mealProtein: 25,
     mealCarbs: 35,
     mealFats: 5,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 18,
@@ -210,6 +324,12 @@ export const meals = [
     mealProtein: 18,
     mealCarbs: 20,
     mealFats: 8,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 19,
@@ -220,6 +340,12 @@ export const meals = [
     mealProtein: 20,
     mealCarbs: 8,
     mealFats: 8,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 20,
@@ -230,6 +356,12 @@ export const meals = [
     mealProtein: 28,
     mealCarbs: 35,
     mealFats: 5,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 21,
@@ -240,6 +372,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 5,
     mealFats: 10,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 22,
@@ -250,6 +388,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 30,
     mealFats: 15,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 23,
@@ -260,6 +404,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 30,
     mealFats: 8,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 24,
@@ -270,6 +420,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 20,
     mealFats: 7,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 25,
@@ -280,6 +436,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 35,
     mealFats: 7,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 26,
@@ -290,6 +452,12 @@ export const meals = [
     mealProtein: 30,
     mealCarbs: 10,
     mealFats: 20,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 27,
@@ -300,6 +468,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 30,
     mealFats: 5,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 28,
@@ -310,6 +484,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 40,
     mealFats: 5,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 29,
@@ -320,6 +500,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 30,
     mealFats: 7,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 30,
@@ -330,6 +516,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 10,
     mealFats: 8,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 31,
@@ -340,6 +532,12 @@ export const meals = [
     mealProtein: 30,
     mealCarbs: 30,
     mealFats: 8,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 32,
@@ -350,6 +548,12 @@ export const meals = [
     mealProtein: 33,
     mealCarbs: 35,
     mealFats: 21,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 33,
@@ -360,6 +564,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 25,
     mealFats: 15,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 34,
@@ -370,6 +580,12 @@ export const meals = [
     mealProtein: 30,
     mealCarbs: 25,
     mealFats: 9,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 35,
@@ -380,6 +596,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 30,
     mealFats: 5,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 36,
@@ -390,6 +612,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 30,
     mealFats: 12,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 37,
@@ -400,6 +628,12 @@ export const meals = [
     mealProtein: 30,
     mealCarbs: 25,
     mealFats: 8,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 38,
@@ -410,6 +644,12 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 30,
     mealFats: 10,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 39,
@@ -420,6 +660,12 @@ export const meals = [
     mealProtein: 30,
     mealCarbs: 35,
     mealFats: 6,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
   {
     id: 40,
@@ -430,5 +676,11 @@ export const meals = [
     mealProtein: 35,
     mealCarbs: 25,
     mealFats: 6,
+    mealIngridients: [
+      {
+        ingridient: "Whey protein",
+        grams: 30,
+      },
+    ],
   },
 ];
