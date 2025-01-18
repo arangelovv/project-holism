@@ -5,11 +5,7 @@
   },
   "hosting": {
     "public": "dist/project-holism/browser",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
@@ -18,19 +14,16 @@
     ]
   },
   "emulators": {
-    "apphosting": {
-      "port": 5002,
-      "rootDirectory": "./",
-      "startCommand": "npm run dev"
-    },
     "auth": {
       "port": 9099
     },
     "firestore": {
-      "port": 8080
+      "port": 8088
     },
     "ui": {
-      "enabled": true
+      "enabled": true,
+      "host": "localhost",
+      "port": 4000
     },
     "singleProjectMode": true,
     "hosting": {
