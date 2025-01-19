@@ -7,10 +7,14 @@
       <div
         class="flex flex-row items-center gap-2 px-2 md:px-4 border-l border-gray-300 cursor-pointer"
       >
-        <img src="pfp.jpeg" alt="neshto" class="w-8 h-8 rounded-full" />
-        <span class="text-slate-700 text-sm font-semibold hidden md:block"
-          >Rangelovv</span
-        >
+        <img
+          [src]="authService.user()?.photoURL"
+          alt="img"
+          class="w-8 h-8 rounded-full"
+        />
+        <span class="text-slate-700 text-sm font-semibold hidden md:block">{{
+          authService.user()?.displayName
+        }}</span>
       </div>
     </app-toolbar>
   </div>
@@ -34,10 +38,14 @@
       <div
         class="flex flex-row items-center gap-2 px-2 md:px-4 border-l border-gray-300 cursor-pointer"
       >
-        <img src="pfp.jpeg" alt="neshto" class="w-8 h-8 rounded-full" />
-        <span class="text-slate-700 text-sm font-semibold hidden md:block"
-          >Rangelovv</span
-        >
+        <img
+          [src]="authService.user()?.photoURL"
+          alt="neshto"
+          class="w-8 h-8 rounded-full"
+        />
+        <span class="text-slate-700 text-sm font-semibold hidden md:block">{{
+          authService.user()?.displayName
+        }}</span>
       </div>
     </app-toolbar>
     }

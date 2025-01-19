@@ -1,8 +1,9 @@
-import { Component, HostListener } from "@angular/core";
+import { Component, HostListener, inject } from "@angular/core";
 import { NavigationEnd, RouterOutlet } from "@angular/router";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { ToolbarComponent } from "../shared/components/toolbar/toolbar.component";
 import { Router } from "@angular/router";
+import { AuthService } from "../shared/services/auth/auth.service";
 
 @Component({
   selector: "app-core",
@@ -10,6 +11,7 @@ import { Router } from "@angular/router";
   templateUrl: "./core.component.html",
 })
 export class CoreComponent {
+  authService = inject(AuthService);
   screenWidth: number = window.innerWidth;
   showToolbar = false;
 

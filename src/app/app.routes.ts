@@ -30,4 +30,9 @@ export const routes: Routes = [
         (c) => c.ExercisesComponent
       ),
   },
+  {
+    path: "landing",
+    loadComponent: () =>
+      import("./features/auth/auth.component").then((c) => c.AuthComponent),
+  },
 ];
