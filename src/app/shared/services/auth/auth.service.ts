@@ -62,4 +62,11 @@ export class AuthService {
       console.error("Sign-in error:", error);
     }
   }
+
+  logout(): Promise<void> {
+    return this.auth.signOut().then(() => {
+      this.userState.set(null);
+      this.router.navigate(["/landing"]);
+    });
+  }
 }

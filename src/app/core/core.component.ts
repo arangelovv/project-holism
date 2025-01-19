@@ -4,10 +4,10 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { ToolbarComponent } from "../shared/components/toolbar/toolbar.component";
 import { Router } from "@angular/router";
 import { AuthService } from "../shared/services/auth/auth.service";
-
+import { RouterLink } from "@angular/router";
 @Component({
   selector: "app-core",
-  imports: [RouterOutlet, SidebarComponent, ToolbarComponent],
+  imports: [RouterOutlet, SidebarComponent, ToolbarComponent, RouterLink],
   templateUrl: "./core.component.html",
 })
 export class CoreComponent {
