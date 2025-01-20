@@ -9,7 +9,11 @@
         routerLink="/user"
       >
         <img
-          [src]="authService.user()?.photoURL"
+          [src]="
+            authService.user()?.photoURL
+              ? authService.user()?.photoURL
+              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
+          "
           alt="img"
           class="w-8 h-8 rounded-full"
         />
@@ -41,8 +45,12 @@
         routerLink="/user"
       >
         <img
-          [src]="authService.user()?.photoURL"
-          alt="neshto"
+          [src]="
+            authService.user()?.photoURL
+              ? authService.user()?.photoURL
+              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
+          "
+          alt="img"
           class="w-8 h-8 rounded-full"
         />
         <span class="text-slate-700 text-sm font-semibold hidden md:block">{{

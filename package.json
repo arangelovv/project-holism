@@ -1,6 +1,6 @@
 {
   "name": "project-holism",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "dev": "firebase emulators:exec --ui 'ng serve'",

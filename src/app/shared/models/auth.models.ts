@@ -7,6 +7,16 @@ export interface AuthState {
   user: AuthUser;
 }
 
+//----------Raw Entity----------
+interface EntityMetaData {
+  createdAt: FieldValue;
+  updatedAt: FieldValue;
+}
+
+export interface Entity {
+  metadata: EntityMetaData;
+}
+
 //----------User Entity----------
 
 interface UserInformation {
@@ -15,7 +25,6 @@ interface UserInformation {
   profilePhotoUrl: string;
 }
 
-export interface UserEntity {
-  metadata: { createdAt: FieldValue; updatedAt: FieldValue };
+export interface UserEntity extends Entity {
   information: UserInformation;
 }
