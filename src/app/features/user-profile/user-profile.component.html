@@ -1,3 +1,44 @@
-<div class="w-full h-full flex flex-col justify-center items-center">
+<!-- <div class="w-full h-full flex flex-col justify-center items-center">
   <button (click)="authService.logout()">Sign Out</button>
+</div> -->
+
+<div class="w-full h-full flex flex-col px-2 gap-2">
+  <div class="w-full h-10 flex flex-row justify-start items-center">
+    <div routerLink="/app/home" class="">
+      <span class="material-symbols-outlined text-slate-800 text-base">
+        arrow_back
+      </span>
+    </div>
+  </div>
+  <div class="flex flex-row gap-2 py-2 px-1 bg-gray-300 rounded">
+    <div class="border-r border-gray-500 pr-2">
+      <img
+        [src]="
+          authService.user()?.photoURL
+            ? authService.user()?.photoURL
+            : 'https://i.pinimg.com/736x/f6/bc/9a/f6bc9a75409c4db0acf3683bab1fab9c.jpg'
+        "
+        alt="img"
+        class="w-20 h-20 object-cover rounded-full"
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <p class="text-slate-700 text-base font-bold">
+        {{ authService.user()?.displayName }}
+      </p>
+      <p class="text-slate-600 text-base font-normal">
+        {{ authService.user()?.email }}
+      </p>
+      <p class="text-slate-600 text-sm font-normal">Gender: Male</p>
+    </div>
+  </div>
+  <div class="flex flex-row justify-center items-center">
+    <button
+      class="w-fit bg-red-400 px-2 py-1 text-gray-950 text-sm font-semibold rounded"
+      (click)="authService.logout()"
+    >
+      Sign Out
+    </button>
+  </div>
 </div>

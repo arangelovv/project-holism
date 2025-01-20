@@ -9,7 +9,7 @@ export const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "meals",
+    redirectTo: "/app/meals",
   },
   {
     path: "landing",
@@ -20,15 +20,7 @@ export const routes: Routes = [
         (c) => c.LandingComponent
       ),
   },
-  {
-    path: "user-profile",
-    canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-    loadComponent: () =>
-      import("./features/user-profile/user-profile.component").then(
-        (c) => c.UserProfileComponent
-      ),
-  },
+
   {
     path: "app",
     canActivate: [AuthGuard],
@@ -74,6 +66,15 @@ export const routes: Routes = [
         loadComponent: () =>
           import("./features/exercises/exercises.component").then(
             (c) => c.ExercisesComponent
+          ),
+      },
+      {
+        path: "user-profile",
+        canActivate: [AuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+        loadComponent: () =>
+          import("./features/user-profile/user-profile.component").then(
+            (c) => c.UserProfileComponent
           ),
       },
     ],
