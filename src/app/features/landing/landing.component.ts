@@ -4,8 +4,8 @@ import { AuthService } from "../../shared/services/auth/auth.service";
 @Component({
   selector: "app-auth",
   imports: [],
-  templateUrl: "./auth.component.html",
+  templateUrl: "./landing.component.html",
 })
-export class AuthComponent {
+export class LandingComponent {
   authService = inject(AuthService);
 }

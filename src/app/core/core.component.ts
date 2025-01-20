@@ -22,8 +22,8 @@ export class CoreComponent {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
         this.showToolbar =
-          currentRoute.includes("/meals") ||
-          currentRoute.includes("/exercises");
+          currentRoute.includes("app/meals") ||
+          currentRoute.includes("app/exercises");
       }
     });
   }
