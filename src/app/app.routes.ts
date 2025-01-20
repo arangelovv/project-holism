@@ -13,8 +13,7 @@ export const routes: Routes = [
   },
   {
     path: "landing",
-    canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectLoggedInToDashboard },
+
     loadComponent: () =>
       import("./features/landing/landing.component").then(
         (c) => c.LandingComponent
