@@ -1,0 +1,45 @@
+@if (screenWidth <= 1366 ){
+<div class="static">
+  <app-toolbar>
+    <div class="grow"></div>
+    <div
+      class="flex flex-row items-center gap-2 px-2 md:px-4 border-l border-gray-300 cursor-pointer"
+      routerLink="/user-profile"
+    >
+      <img
+        [src]="
+          authService.user()?.photoURL
+            ? authService.user()?.photoURL
+            : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
+        "
+        alt="img"
+        class="w-8 h-8 rounded-full"
+      />
+      <span class="text-slate-700 text-sm font-semibold hidden md:block">{{
+        authService.user()?.displayName
+      }}</span>
+    </div>
+  </app-toolbar>
+</div>
+}@else {
+<app-toolbar>
+  <div class="grow"></div>
+  <div
+    class="flex flex-row items-center gap-2 px-2 md:px-4 border-l border-gray-300 cursor-pointer"
+    routerLink="/user-profile"
+  >
+    <img
+      [src]="
+        authService.user()?.photoURL
+          ? authService.user()?.photoURL
+          : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
+      "
+      alt="img"
+      class="w-8 h-8 rounded-full"
+    />
+    <span class="text-slate-700 text-sm font-semibold hidden md:block">{{
+      authService.user()?.displayName
+    }}</span>
+  </div>
+</app-toolbar>
+}

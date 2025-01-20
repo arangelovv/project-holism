@@ -66,7 +66,7 @@ export class AuthService {
       await this.firestoreService.setDoc("users", userEntity, user.uid);
 
       console.warn(`${user.displayName} signed in successfully.`);
-      this.router.navigate(["/home"]);
+      this.router.navigate(["/app/home"]);
     } catch (error: any) {
       console.error("Sign-in error:", error);
     }

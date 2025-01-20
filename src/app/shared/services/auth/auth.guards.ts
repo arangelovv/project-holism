@@ -6,4 +6,5 @@ import {
 export const redirectUnauthorizedToLogin = () =>
   redirectUnauthorizedTo(["landing"]);
 
-export const redirectLoggedInToDashboard = () => redirectLoggedInTo(["home"]);
+export const redirectLoggedInToDashboard = () =>
+  redirectLoggedInTo(["/app/home"]);

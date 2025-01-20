@@ -1,29 +1,5 @@
 @if (screenWidth <= 1366 ){
 <div class="flex flex-col w-full h-full bg-transparent">
-  @if(showToolbar){
-  <div class="static">
-    <app-toolbar>
-      <div class="grow"></div>
-      <div
-        class="flex flex-row items-center gap-2 px-2 md:px-4 border-l border-gray-300 cursor-pointer"
-        routerLink="/user"
-      >
-        <img
-          [src]="
-            authService.user()?.photoURL
-              ? authService.user()?.photoURL
-              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
-          "
-          alt="img"
-          class="w-8 h-8 rounded-full"
-        />
-        <span class="text-slate-700 text-sm font-semibold hidden md:block">{{
-          authService.user()?.displayName
-        }}</span>
-      </div>
-    </app-toolbar>
-  </div>
-  }
   <div class="overflow-auto grow">
     <router-outlet />
   </div>
@@ -37,28 +13,6 @@
     <app-sidebar />
   </div>
   <div class="flex flex-col grow">
-    @if(showToolbar){
-    <app-toolbar>
-      <div class="grow"></div>
-      <div
-        class="flex flex-row items-center gap-2 px-2 md:px-4 border-l border-gray-300 cursor-pointer"
-        routerLink="/user"
-      >
-        <img
-          [src]="
-            authService.user()?.photoURL
-              ? authService.user()?.photoURL
-              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
-          "
-          alt="img"
-          class="w-8 h-8 rounded-full"
-        />
-        <span class="text-slate-700 text-sm font-semibold hidden md:block">{{
-          authService.user()?.displayName
-        }}</span>
-      </div>
-    </app-toolbar>
-    }
     <div class="overflow-auto grow">
       <router-outlet />
     </div>
