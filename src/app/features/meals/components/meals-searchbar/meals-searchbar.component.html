@@ -1,0 +1,14 @@
+<div class="relative w-full">
+  <span
+    class="material-symbols-outlined absolute inset-y-0 left-3 flex items-center text-slate-400"
+  >
+    search
+  </span>
+
+  <input
+    class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm pl-10 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300"
+    placeholder="Search"
+    type="text"
+    (input)="onSearch($event)"
+  />
+</div>

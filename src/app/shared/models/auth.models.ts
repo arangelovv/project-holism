@@ -25,6 +25,21 @@ interface UserInformation {
   profilePhotoUrl: string;
 }
 
+// interface UserPhysicalDetails {
+//   height: number;
+//   weight: number;
+//   gender: "male" | "female" | "other";
+// }
+
+// interface UserNutritionalGoals {
+//   caloriesGoal: number;
+//   proteinGoal: number;
+//   fatGoal: number;
+//   carbsGoal: number;
+// }
+
 export interface UserEntity extends Entity {
   information: UserInformation;
+  // physicalDetails: UserPhysicalDetails;
+  // nutritionalGoals: UserNutritionalGoals;
 }

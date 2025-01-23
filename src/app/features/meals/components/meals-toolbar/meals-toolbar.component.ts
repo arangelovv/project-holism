@@ -2,9 +2,10 @@ import { Component, HostListener, inject } from "@angular/core";
 import { ToolbarComponent } from "../../../../shared/components/toolbar/toolbar.component";
 import { AuthService } from "../../../../shared/services/auth/auth.service";
 import { RouterLink } from "@angular/router";
+import { MealsSearchbarComponent } from "../meals-searchbar/meals-searchbar.component";
 @Component({
   selector: "app-meals-toolbar",
-  imports: [ToolbarComponent, RouterLink],
+  imports: [ToolbarComponent, MealsSearchbarComponent, RouterLink],
   templateUrl: "./meals-toolbar.component.html",
 })
 export class MealsToolbarComponent {
