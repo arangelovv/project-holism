@@ -1,78 +1,77 @@
-import { Routes } from "@angular/router";
+import { Routes } from '@angular/router';
 import {
   redirectLoggedInToDashboard,
   redirectUnauthorizedToLogin,
-} from "./shared/services/auth/auth.guards";
-import { AuthGuard } from "@angular/fire/auth-guard";
+} from './shared/services/auth/auth.guards';
+import { AuthGuard } from '@angular/fire/auth-guard';
 
 export const routes: Routes = [
   {
-    path: "",
-    pathMatch: "full",
-    redirectTo: "/app/meals",
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/app/meals',
   },
   {
-    path: "landing",
-
+    path: 'landing',
     loadComponent: () =>
-      import("./features/landing/landing.component").then(
+      import('./features/landing/landing.component').then(
         (c) => c.LandingComponent
       ),
   },
 
   {
-    path: "app",
+    path: 'app',
     canActivate: [AuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
     loadComponent: () =>
-      import("./core/core.component").then((c) => c.CoreComponent),
+      import('./core/core.component').then((c) => c.CoreComponent),
     children: [
       {
-        path: "",
-        pathMatch: "full",
-        redirectTo: "home",
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home',
       },
       {
-        path: "home",
+        path: 'home',
         canActivate: [AuthGuard],
         data: { authGuardPipe: redirectUnauthorizedToLogin },
         loadComponent: () =>
-          import("./features/home/home.component").then((c) => c.HomeComponent),
+          import('./features/home/home.component').then((c) => c.HomeComponent),
       },
 
       {
-        path: "meals",
+        path: 'meals',
         canActivate: [AuthGuard],
         data: { authGuardPipe: redirectUnauthorizedToLogin },
         loadComponent: () =>
-          import("./features/meals/meals.component").then(
+          import('./features/meals/meals.component').then(
             (c) => c.MealsComponent
           ),
       },
       {
-        path: "meal-details/:id",
+        path: 'meal-details/:id',
         canActivate: [AuthGuard],
         data: { authGuardPipe: redirectUnauthorizedToLogin },
         loadComponent: () =>
           import(
-            "./features/meals/components/meal-details-view/meal-details.component"
+            './features/meals/components/meal-details-view/meal-details.component'
           ).then((c) => c.MealDetailsComponent),
       },
       {
-        path: "exercises",
+        path: 'exercises',
         canActivate: [AuthGuard],
         data: { authGuardPipe: redirectUnauthorizedToLogin },
         loadComponent: () =>
-          import("./features/exercises/exercises.component").then(
+          import('./features/exercises/exercises.component').then(
             (c) => c.ExercisesComponent
           ),
       },
       {
-        path: "user-profile",
+        path: 'user-profile',
         canActivate: [AuthGuard],
         data: { authGuardPipe: redirectUnauthorizedToLogin },
         loadComponent: () =>
-          import("./features/user-profile/user-profile.component").then(
+          import('./features/user-profile/user-profile.component').then(
             (c) => c.UserProfileComponent
           ),
       },

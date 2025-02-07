@@ -1,17 +1,17 @@
-import { computed, inject, Injectable, signal } from "@angular/core";
+import { computed, inject, Injectable, signal } from '@angular/core';
 import {
   Auth,
   authState,
   GoogleAuthProvider,
   signInWithPopup,
-} from "@angular/fire/auth";
-import { AuthState, UserEntity } from "../../models/auth.models";
-import { serverTimestamp } from "firebase/firestore";
-import { Router } from "@angular/router";
-import { FirestoreService } from "../firestore/firestore.service";
+} from '@angular/fire/auth';
+import { AuthState, UserEntity } from '../../models/auth.models';
+import { serverTimestamp } from 'firebase/firestore';
+import { Router } from '@angular/router';
+import { FirestoreService } from '../firestore/firestore.service';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AuthService {
   private auth = inject(Auth);
@@ -29,7 +29,7 @@ export class AuthService {
     authState(this.auth).subscribe((user) => {
       this.userState.set({ user });
       if (!user) {
-        this.router.navigate(["/landing"]);
+        this.router.navigate(['/landing']);
       }
     });
   }
@@ -42,7 +42,7 @@ export class AuthService {
       const user = result.user;
 
       if (!user) {
-        throw new Error("No user information received from Google Auth");
+        throw new Error('No user information received from Google Auth');
       }
 
       const currentDate = new Date();
@@ -54,28 +54,28 @@ export class AuthService {
           updatedAt: currentDate,
         },
         information: {
-          email: user.email ?? "",
-          displayName: user.displayName ?? "",
-          profilePhotoUrl: user.photoURL ?? "",
+          email: user.email ?? '',
+          displayName: user.displayName ?? '',
+          profilePhotoUrl: user.photoURL ?? '',
         },
       };
 
-      console.log("User Entity to be written:", userEntity); // Log before writing
+      console.log('User Entity to be written:', userEntity); // Log before writing
 
       // Save to Firestore using the FirestoreService
-      await this.firestoreService.setDoc("users", userEntity, user.uid);
+      await this.firestoreService.setDoc('users', userEntity, user.uid);
 
       console.warn(`${user.displayName} signed in successfully.`);
-      this.router.navigate(["/app/home"]);
+      this.router.navigate(['/app/']);
     } catch (error: any) {
-      console.error("Sign-in error:", error);
+      console.error('Sign-in error:', error);
     }
   }
 
   logout(): Promise<void> {
     return this.auth.signOut().then(() => {
       this.userState.set(null);
-      this.router.navigate(["/landing"]);
+      this.router.navigate(['/landing']);
     });
   }
 }
