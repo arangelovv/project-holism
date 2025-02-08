@@ -1,180 +1,115 @@
 <div class="w-full h-full flex flex-col">
-  <div>
-    <app-toolbar>
-      <div class="grow">
-        <span class="text-slate-700 text-lg font-semibold"
-          >Welcome back, {{ authService.user()?.displayName }}
-        </span>
-      </div>
-      <div
-        class="flex flex-row items-center gap-2 px-2 md:px-2 border-l border-gray-300 cursor-pointer"
+  <!-- Toolbar Section; Abstract in a separate component -->
+  <div class="px-6 py-6 flex">
+    <div class="flex flex-col grow">
+      <Span class="text-slate-800 font-semibold text-2xl"
+        >Welcome back, {{ authService.user()?.displayName }}</Span
+      >
+      <span class="text-slate-500"
+        >Track your nutrition and fitness goals
+      </span>
+    </div>
+    <div class="flex items-center">
+      <img
+        [src]="
+          authService.user()?.photoURL
+            ? authService.user()?.photoURL
+            : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
+        "
+        alt="img"
+        class="w-10 h-10 rounded cursor-pointer"
         routerLink="/app/user-profile"
-      >
-        <img
-          [src]="
-            authService.user()?.photoURL
-              ? authService.user()?.photoURL
-              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
-          "
-          alt="img"
-          class="w-8 h-8 rounded-full"
-        />
-      </div>
-    </app-toolbar>
+      />
+    </div>
   </div>
-  <div class="w-full h-full flex flex-col p-2 gap-4">
-    <div class="border border-gray-300 rounded">
-      <div class="flex flex-row items-center px-2 py-2">
-        <div id="heading" class="w-full flex flex-row items-center gap-2">
-          <div class="flex flex-row gap-2 items-center grow">
-            <span
-              class="text-slate-700 pr-2 border-r border-gray-400 text-base font-semibold"
-              >Calories and macros</span
-            >
 
-            <span class="text-indigo-600 text-sm font-semibold cursor-pointer"
-              >Today</span
-            >
-            <span class="text-slate-500 text-sm font-semibold cursor-pointer"
-              >Last 7 days</span
-            >
-            <span class="text-slate-500 text-sm font-semibold cursor-pointer"
-              >Last 30 days</span
-            >
-            <span class="text-slate-500 text-sm font-semibold cursor-pointer"
-              >All time</span
-            >
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex flex-row items-center justify-between gap-2 px-4 py-4 border-t border-gray-300"
+  <!-- Daily Overview Section -->
+  <div class="flex flex-col px-6 gap-3">
+    <div class="flex flex-col gap-2 justify-center md:flex-row">
+      <span class="grow text-slate-800 font-semibold text-lg md:text-xl"
+        >Daily Overview</span
       >
-        <div class="flex flex-col gap-2 p-2 border-r border-gray-300 w-full">
-          <span class="text-purple-600 text-sm font-semibold">Calories</span>
-          <span class="text-slate-700 text-xl font-semibold"
-            >780 / 2400cal</span
-          >
-        </div>
-        <div class="flex flex-col gap-2 p-2 border-r border-gray-300 w-full">
-          <span class="text-blue-600 text-sm font-semibold">Protein</span>
-          <span class="text-slate-700 text-xl font-semibold">61.5 / 193g</span>
-        </div>
-        <div class="flex flex-col gap-2 p-2 border-r border-gray-300 w-full">
-          <span class="text-green-600 text-sm font-semibold">Carbs</span>
-          <span class="text-slate-700 text-xl font-semibold">78 / 220g</span>
-        </div>
-        <div class="flex flex-col gap-2 p-2 w-full">
-          <span class="text-yellow-600 text-sm font-semibold">Fats</span>
-          <span class="text-slate-700 text-xl font-semibold">18 / 61g</span>
-        </div>
+      <div
+        class="flex flex-row gap-2 px-1.5 py-1.5 rounded-lg border border-gray-200"
+      >
+        <button
+          class="font-semibold text-sm text-indigo-600 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded"
+        >
+          Today
+        </button>
+        <button
+          class="font-semibold text-sm text-zinc-500 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded"
+        >
+          Last 7 Days
+        </button>
+        <button
+          class="font-semibold text-sm text-zinc-500 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded"
+        >
+          Last 30 Days
+        </button>
+        <button
+          class="font-semibold text-sm text-zinc-500 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded"
+        >
+          All Time
+        </button>
       </div>
     </div>
-
-    <div class="flex flex-row gap-2">
-      <!-- Meals Panel -->
-      <div
-        id="today-meals"
-        class="flex flex-col gap-2 p-2 border rounded-md border-gray-300 w-1/2"
-      >
-        <div class="flex flex-row items-center">
-          <div class="flex flex-row grow items-center">
-            <span
-              class="text-indigo-700 pr-2 border-gray-400 text-lg font-semibold"
-              >Today Meals</span
-            >
-            <span class="material-symbols-outlined text-[22px] cursor-pointer">
-              calendar_month
-            </span>
-          </div>
-
-          <button
-            class="px-2 py-1 bg-indigo-400 rounded-md text-slate-900 text-sm font-semibold"
-          >
-            Custom Log
-          </button>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div class="flex flex-col gap-2 border rounded-md px-6 py-4">
+        <span class="text-gray-600 text-base">Calories</span>
+        <span class="text-slate-950 font-semibold text-2xl">780 / 2400cal</span>
+        <div class="h-2 rounded-full bg-gray-300 overflow-hidden">
+          <div
+            class="h-full rounded-full transition-all duration-500 bg-blue-600"
+            [style.width.%]="30"
+            [style.min-width.px]="8"
+          ></div>
         </div>
-
-        <div class="flex flex-col border-b border-gray-300 px-2 py-2 gap-1">
-          <div class="flex flex-row items-center">
-            <div class="flex flex-row items-center gap-2 grow">
-              <span class="text-slate-900 text-base font-semibold"
-                >High Protein Oat Meal</span
-              >
-              <span class="text-slate-600 text-sm font-semibold"
-                >Portion: 1.5</span
-              >
-            </div>
-            <div>
-              <span
-                class="material-symbols-outlined cursor-pointer text-red-800"
-              >
-                delete_forever
-              </span>
-            </div>
-          </div>
-
-          <div class="flex flex-row gap-2 text-slate-600 text-sm font-semibold">
-            <span>Calories: 480</span>
-            <span>Protein: 37.5g</span>
-            <span>Carb: 60g</span>
-            <span>Fats: 7.5g</span>
-          </div>
-        </div>
-        <div class="flex flex-col px-2 py-2 rounded gap-1">
-          <div class="flex flex-row items-center">
-            <div class="flex flex-row items-center gap-2 grow">
-              <span class="text-slate-900 text-base font-semibold"
-                >Smoked Salmon on Rye Bread
-              </span>
-              <span class="text-slate-600 text-sm font-semibold"
-                >Portion: 1.5</span
-              >
-            </div>
-            <div>
-              <span
-                class="material-symbols-outlined cursor-pointer text-red-800"
-              >
-                delete_forever
-              </span>
-            </div>
-          </div>
-
-          <div class="flex flex-row gap-2 text-slate-600 text-sm font-semibold">
-            <span>Calories: 300</span>
-            <span>Protein: 24g</span>
-            <span>Carb: 18g</span>
-            <span>Fats: 10.5g</span>
-          </div>
-        </div>
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+          33% of daily goal
+        </p>
       </div>
-
-      <!-- Weight Panel -->
-      <div class="flex flex-col gap-2 border rounded-md border-gray-300 w-1/2">
-        <div class="flex flex-row border-b border-gray-300 p-2">
-          <div class="grow flex flex-row gap-2 items-center">
-            <span
-              class="text-slate-700 pr-2 border-r border-gray-400 text-base font-semibold"
-              >Body Weight</span
-            >
-            <span class="text-indigo-600 text-sm font-semibold cursor-pointer"
-              >Last 7 days</span
-            >
-            <span class="text-slate-500 text-sm font-semibold cursor-pointer"
-              >Last 30 days</span
-            >
-            <span class="text-slate-500 text-sm font-semibold cursor-pointer"
-              >All time</span
-            >
-          </div>
-
-          <button
-            class="px-2 py-1 bg-indigo-400 rounded-md text-slate-900 text-sm font-semibold"
-          >
-            Log Weight
-          </button>
+      <div class="flex flex-col gap-2 border rounded-md px-6 py-4">
+        <span class="text-gray-600 text-base">Protein</span>
+        <span class="text-slate-950 font-semibold text-2xl">61 / 193g</span>
+        <div class="h-2 rounded-full bg-gray-300 overflow-hidden">
+          <div
+            class="h-full rounded-full transition-all duration-500 bg-blue-600"
+            [style.width.%]="30"
+            [style.min-width.px]="8"
+          ></div>
         </div>
-        <div class="flex flex-col"></div>
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+          32% of daily goal
+        </p>
+      </div>
+      <div class="flex flex-col gap-2 border rounded-md px-6 py-4">
+        <span class="text-gray-600 text-base">Carbs</span>
+        <span class="text-slate-950 font-semibold text-2xl">78 / 220g</span>
+        <div class="h-2 rounded-full bg-gray-300 overflow-hidden">
+          <div
+            class="h-full rounded-full transition-all duration-500 bg-blue-600"
+            [style.width.%]="30"
+            [style.min-width.px]="8"
+          ></div>
+        </div>
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+          35% of daily goal
+        </p>
+      </div>
+      <div class="flex flex-col gap-2 border rounded-md px-6 py-4">
+        <span class="text-gray-600 text-base">Fats</span>
+        <span class="text-slate-950 font-semibold text-2xl">18 / 61g</span>
+        <div class="h-2 rounded-full bg-gray-300 overflow-hidden">
+          <div
+            class="h-full rounded-full transition-all duration-500 bg-blue-600"
+            [style.width.%]="30"
+            [style.min-width.px]="8"
+          ></div>
+        </div>
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+          30% of daily goal
+        </p>
       </div>
     </div>
   </div>
