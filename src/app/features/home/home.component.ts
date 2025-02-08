@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { ToolbarComponent } from '../../shared/components/toolbar/toolbar.component';
 import { AuthService } from '../../shared/services/auth/auth.service';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
-  imports: [ToolbarComponent],
+  imports: [RouterLink],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {

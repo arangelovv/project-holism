@@ -69,8 +69,8 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         data: { authGuardPipe: redirectUnauthorizedToLogin },
         loadComponent: () =>
-          import('./features/user-profile/user-profile.component').then(
-            (c) => c.UserProfileComponent
+          import('./features/profile-page/profile-page.component').then(
+            (c) => c.ProfilePageComponent
           ),
       },
     ],
