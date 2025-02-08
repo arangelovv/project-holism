@@ -14,9 +14,7 @@ export const routes: Routes = [
   {
     path: 'landing',
     loadComponent: () =>
-      import('./features/landing/landing.component').then(
-        (c) => c.LandingComponent
-      ),
+      import('./features/auth/auth.component').then((c) => c.AuthComponent),
   },
 
   {
