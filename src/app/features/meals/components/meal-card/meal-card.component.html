@@ -1,28 +1,43 @@
 <div
   [routerLink]="['/app/meal-details', mealId()]"
-  class="flex flex-col gap-2 rounded border w-full h-full p-3 bg-gray-300 cursor-pointer hover:border-indigo-500 transition-colors duration-200 flex-shrink-0"
+  class="group rounded-lg border border-gray-200 bg-white overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
 >
-  <div class="flex flex-row items-start gap-4 pb-2 border-b border-gray-400">
-    <div class="flex-grow flex flex-col gap-2">
-      <span id="meal-name" class="text-slate-800 text-sm font-semibold">{{
-        mealName()
-      }}</span>
-      <app-meal-tag [mealTag]="mealTag()" />
+  <div class="p-4">
+    <div class="flex items-start justify-between">
+      <div>
+        <h3 class="font-semibold line-clamp-2 mb-1">{{ mealName() }}</h3>
+        <div class="flex items-center gap-2">
+          <span
+            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800"
+          >
+            {{ mealTag() }}
+          </span>
+          <div class="flex items-center text-gray-500 text-sm">
+            <span class="material-symbols-outlined text-slate-500 text-base">
+              timer
+            </span>
+            {{ mealPrepTime() }}
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="flex flex-row items-center">
-      <span class="material-symbols-outlined text-slate-500 text-base">
-        timer
-      </span>
-      <span class="text-slate-500 text-xs font-semibold">{{
-        mealPrepTime()
-      }}</span>
+    <div class="grid grid-cols-2 gap-3 mt-4 text-sm">
+      <div>
+        <p class="text-gray-500">Calories</p>
+        <p class="font-medium">{{ mealCalories() }}</p>
+      </div>
+      <div>
+        <p class="text-gray-500">Protein</p>
+        <p class="font-medium">{{ mealProtein() }}g</p>
+      </div>
+      <div>
+        <p class="text-gray-500">Carbs</p>
+        <p class="font-medium">{{ mealCarbs() }}g</p>
+      </div>
+      <div>
+        <p class="text-gray-500">Fats</p>
+        <p class="font-medium">{{ mealFats() }}g</p>
+      </div>
     </div>
-  </div>
-
-  <div class="flex flex-row gap-2 text-slate-600 text-xs font-semibold">
-    <span>Calories: {{ mealCalories() }}</span>
-    <span>Protein: {{ mealProtein() }}g</span>
-    <span>Carb: {{ mealCarbs() }}g</span>
-    <span>Fats: {{ mealFats() }}g</span>
   </div>
 </div>
