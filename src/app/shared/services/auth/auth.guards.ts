@@ -1,10 +1,10 @@
 import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
-} from "@angular/fire/auth-guard";
+} from '@angular/fire/auth-guard';
 
 export const redirectUnauthorizedToLogin = () =>
-  redirectUnauthorizedTo(["landing"]);
+  redirectUnauthorizedTo(['auth']);
 
 export const redirectLoggedInToDashboard = () =>
-  redirectLoggedInTo(["/app/home"]);
+  redirectLoggedInTo(['/app/home']);

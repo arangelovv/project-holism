@@ -29,7 +29,7 @@ export class AuthService {
     authState(this.auth).subscribe((user) => {
       this.userState.set({ user });
       if (!user) {
-        this.router.navigate(['/landing']);
+        this.router.navigate(['/auth']);
       }
     });
   }
@@ -75,7 +75,7 @@ export class AuthService {
   logout(): Promise<void> {
     return this.auth.signOut().then(() => {
       this.userState.set(null);
-      this.router.navigate(['/landing']);
+      this.router.navigate(['/auth']);
     });
   }
 }

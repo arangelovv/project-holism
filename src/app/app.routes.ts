@@ -12,7 +12,7 @@ export const routes: Routes = [
     redirectTo: '/app/meals',
   },
   {
-    path: 'landing',
+    path: 'auth',
     loadComponent: () =>
       import('./features/auth/auth.component').then((c) => c.AuthComponent),
   },
