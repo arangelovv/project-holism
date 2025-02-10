@@ -19,11 +19,11 @@
     id="sidebar-nav-elements"
     class="flex flex-row justify-between pl-4 pr-6 py-2 gap-y-2 xl:flex-col"
   >
-    <app-nav-button title="Home" icon="home" route="/app/home" />
-    <app-nav-button title="Meals" icon="food_bank" route="/app/meals" />
+    <app-nav-button title="Home" [icon]="HouseIcon" route="/app/home" />
+    <app-nav-button title="Meals" [icon]="UtensilsIcon" route="/app/meals" />
     <app-nav-button
       title="Exercises"
-      icon="fitness_center"
+      [icon]="DumbbellIcon"
       route="/app/exercises"
     />
   </div>

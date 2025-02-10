@@ -1,67 +1,173 @@
-<div class="flex flex-col w-full h-full">
-  <!-- Toolbar -->
-  <app-meal-detail-toolbar
-    [servingSize]="servingSize()"
-    (servingSizeChange)="updateServingSize($event)"
-  />
-
-  <div class="flex flex-col gap-2 w-full h-full p-2">
-    <!-- General Information Section -->
-    <div class="flex flex-row">
-      <span class="text-slate-800 text-base font-semibold grow">
-        {{ mealDetails.mealName }}
-      </span>
-      <div class="flex flex-row items-center">
-        <span class="material-symbols-outlined text-slate-500 text-base">
-          timer
-        </span>
-        <span class="text-slate-500 text-xs font-semibold">{{
-          mealDetails.mealPrepTime
-        }}</span>
-      </div>
-    </div>
-    <app-meal-tag [mealTag]="mealDetails.mealTag" />
-
-    <!-- Ingridients Section -->
-    <div class="py-2 border-t border-gray-300 grow 2xl:grow-0">
-      <div class="flex flex-col gap-1 text-slate-800 font-semibold">
-        @for (ingredient of adjustedIngredients(); track $index) {
-
-        <app-ingridient-chip
-          [ingridientName]="ingredient.ingridient"
-          [ingridientGrams]="ingredient.grams"
-        />
-        }
-      </div>
-    </div>
-
-    <!-- Calories and Macronutrients Section -->
-    <div
-      class="flex flex-row justify-center pt-2 border-t border-gray-300 2xl:justify-start"
+<main class="flex-1">
+  <div class="max-w-4xl mx-auto p-6">
+    <!-- Back Button -->
+    <a
+      routerLink="/app/meals"
+      class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 mb-6"
     >
-      <div class="flex flex-row gap-2 text-slate-800 text-xs font-semibold">
-        <div
-          class="w-13 h-13 p-2 flex items-center justify-center border rounded-full border-indigo-400"
-        >
-          {{ adjustedCalories() }}
-          Cals
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+      Back to Meals
+    </a>
+
+    <!-- Meal Header -->
+    <div class="relative aspect-video rounded-xl overflow-hidden mb-8">
+      <img
+        [src]="mealDetails?.mealImg"
+        [alt]="mealDetails?.mealName"
+        class="object-cover w-full h-full"
+      />
+    </div>
+
+    <div class="space-y-8">
+      <!-- Title and Quick Info -->
+      <div>
+        <h1 class="text-3xl font-bold mb-4">{{ mealDetails?.mealName }}</h1>
+        <p class="text-gray-500 mb-6">
+          {{ mealDetails?.mealDescription }}
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="flex items-center gap-2">
+            <lucide-angular [img]="ClockIcon" class="my-icon"></lucide-angular>
+
+            <div>
+              <p class="text-sm text-gray-500">Prep Time</p>
+              <p class="font-medium">{{ mealDetails?.mealPrepTime }}</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <lucide-angular [img]="ScaleIcon" class="my-icon"></lucide-angular>
+
+            <div>
+              <p class="text-sm text-gray-500">Difficulty</p>
+              <p class="font-medium">{{ mealDetails?.mealDifficulty }}</p>
+            </div>
+          </div>
         </div>
-        <div
-          class="w-13 h-13 p-2 flex items-center justify-center border rounded-full border-cyan-400"
-        >
-          {{ adjustedMacronutrients().protein }}g Protein
+      </div>
+
+      <!-- Serving Size and Log Button -->
+      <div
+        class="flex flex-col sm:flex-row sm:items-center gap-4 sm:justify-between"
+      >
+        <div class="flex items-center gap-4">
+          <span class="text-sm font-medium">Adjust Serving Size:</span>
+          <div class="flex items-center gap-2">
+            <button
+              (click)="updateServingSize(getMaxValue(0.5, servingSize() - 0.5))"
+              class="h-8 w-8 flex items-center justify-center rounded-full border border-gray-200 hover:bg-gray-100"
+              aria-label="Decrease serving size"
+            >
+              -
+            </button>
+            <span class="w-12 text-center font-medium"
+              >{{ servingSize() }}x</span
+            >
+            <button
+              (click)="updateServingSize(servingSize() + 0.5)"
+              class="h-8 w-8 flex items-center justify-center rounded-full border border-gray-200 hover:bg-gray-100"
+              aria-label="Increase serving size"
+            >
+              +
+            </button>
+          </div>
         </div>
-        <div
-          class="w-13 h-13 p-2 flex items-center justify-center border rounded-full border-emerald-400"
+        <button
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
         >
-          {{ adjustedMacronutrients().carbs }}g Carbs
+          Log Meal
+        </button>
+      </div>
+
+      <!-- Macros -->
+      <div class="grid grid-cols-4 gap-4">
+        <div class="rounded-lg border border-gray-200 p-4">
+          <p class="text-sm text-gray-500 mb-1">Calories</p>
+          <p class="text-2xl font-bold">{{ adjustedCalories() }}</p>
         </div>
-        <div
-          class="w-13 h-13 p-2 flex items-center justify-center border rounded-full border-amber-400"
-        >
-          {{ adjustedMacronutrients().fats }}g Fats
+        <div class="rounded-lg border border-gray-200 p-4">
+          <p class="text-sm text-gray-500 mb-1">Protein</p>
+          <p class="text-2xl font-bold">
+            {{ adjustedMacronutrients().protein }}g
+          </p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-4">
+          <p class="text-sm text-gray-500 mb-1">Carbs</p>
+          <p class="text-2xl font-bold">
+            {{ adjustedMacronutrients().carbs }}g
+          </p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-4">
+          <p class="text-sm text-gray-500 mb-1">Fats</p>
+          <p class="text-2xl font-bold">{{ adjustedMacronutrients().fats }}g</p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div>
+        <div class="flex border-b border-gray-200">
+          <button
+            (click)="activeTab.set('ingridients')"
+            [class]="activeTab() === 'ingridients' ? 'text-blue' : ''"
+            class="px-4 py-2 text-sm font-medium -mb-px"
+            [ngClass]="{
+              'border-b-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-500':
+                activeTab() === 'ingridients',
+              'text-gray-500 dark:text-gray-400': activeTab() !== 'ingridients'
+            }"
+          >
+            Ingredients
+          </button>
+          <button
+            (click)="activeTab.set('instructions')"
+            class="px-4 py-2 text-sm font-medium -mb-px"
+            [ngClass]="{
+              'border-b-2 border-blue-600  text-blue-600 ':
+                activeTab() === 'instructions',
+              'text-gray-500 ': activeTab() !== 'instructions'
+            }"
+          >
+            Instructions
+          </button>
+        </div>
+        <div class="mt-6">
+          @if (activeTab() === 'ingridients') {
+          <ul class="space-y-3">
+            @for (ingredient of adjustedIngredients(); track $index) {
+            <li
+              class="flex items-center justify-between py-2 border-b border-gray-100 last:border-0"
+            >
+              <span>{{ ingredient.ingridient }}</span>
+              <span class="text-gray-500"> {{ ingredient.grams }}g </span>
+            </li>
+            }
+          </ul>
+          }@else {
+          <div class="space-y-6">
+            <ol class="space-y-4 list-decimal list-inside">
+              @for (instruction of mealDetails.instructions; track $index) {
+              <li class="pl-2">
+                {{ instruction }}
+              </li>
+              }
+            </ol>
+          </div>
+          }
         </div>
       </div>
     </div>
   </div>
-</div>
+</main>

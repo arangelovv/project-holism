@@ -7,7 +7,7 @@ import { AuthService } from '../../shared/services/auth/auth.service';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-meals',
-  imports: [MealCardComponent, MealsToolbarComponent, RouterLink],
+  imports: [MealCardComponent, RouterLink],
   templateUrl: './meals.component.html',
 })
 export class MealsComponent {

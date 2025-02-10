@@ -1,31 +1,26 @@
-import { Component, inject, signal } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { meals } from "../../models/meals.models";
-import { NgClass } from "@angular/common";
-import { MealTagComponent } from "../meal-tag/meal-tag.component";
-import { ToolbarComponent } from "../../../../shared/components/toolbar/toolbar.component";
-import { MealDetailToolbarComponent } from "./meal-detail-toolbar/meal-detail-toolbar.component";
-import { IngridientChipComponent } from "./ingridient-chip/ingridient-chip.component";
+import { Component, inject, Signal, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { meals } from '../../models/meals.models';
+import { NgClass } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { LucideAngularModule, Clock, Scale } from 'lucide-angular';
 
 @Component({
-  selector: "app-meal-details",
-  imports: [
-    NgClass,
-    MealTagComponent,
-    ToolbarComponent,
-    MealDetailToolbarComponent,
-    IngridientChipComponent,
-  ],
-  templateUrl: "./meal-details.component.html",
+  selector: 'app-meal-details',
+  imports: [NgClass, RouterLink, LucideAngularModule],
+  templateUrl: './meal-details.component.html',
 })
 export class MealDetailsComponent {
+  readonly ClockIcon = Clock;
+  readonly ScaleIcon = Scale;
   route: ActivatedRoute = inject(ActivatedRoute);
   mealDetailsId: number = 0;
+  activeTab = signal<'ingridients' | 'instructions'>('ingridients');
   mealDetails: any | undefined = undefined;
   servingSize = signal<number>(1);
 
   constructor() {
-    this.mealDetailsId = Number(this.route.snapshot.params["id"]);
+    this.mealDetailsId = Number(this.route.snapshot.params['id']);
     this.mealDetails = meals.find((meal) => meal.id === this.mealDetailsId);
   }
 
@@ -46,4 +41,7 @@ export class MealDetailsComponent {
   });
 
   adjustedCalories = () => this.mealDetails.mealCalories * this.servingSize();
+  getMaxValue(a: number, b: number): number {
+    return Math.max(a, b);
+  }
 }

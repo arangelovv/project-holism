@@ -3,7 +3,7 @@
   [routerLink]="route()"
   [routerLinkActive]="'!text-blue-600 xl:bg-blue-300/20 xl:rounded-md '"
 >
-  <span class="material-symbols-outlined leading-none"> {{ icon() }} </span>
+  <lucide-angular [size]="22" [img]="icon()" class="my-icon"></lucide-angular>
   <span class="text-sm sm:text-base md:text-sm font-semibold leading-none">{{
     title()
   }}</span>
