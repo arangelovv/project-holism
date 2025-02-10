@@ -1,6 +1,6 @@
-<div class="w-full h-full flex flex-col">
+<div class="w-full h-full flex flex-col gap-6 px-6 py-6">
   <!-- Toolbar Section; Abstract in a separate component -->
-  <div class="px-6 py-6 flex">
+  <div class="flex">
     <div class="flex flex-col grow">
       <Span class="text-slate-800 font-semibold text-2xl"
         >Welcome back, {{ authService.user()?.displayName }}</Span
@@ -24,7 +24,7 @@
   </div>
 
   <!-- Daily Overview Section -->
-  <div class="flex flex-col px-6 gap-3">
+  <div class="flex flex-col gap-3">
     <div class="flex flex-col gap-2 justify-center md:flex-row">
       <span class="grow text-slate-800 font-semibold text-lg md:text-xl"
         >Daily Overview</span
@@ -113,4 +113,70 @@
       </div>
     </div>
   </div>
+
+  <div class="rounded-lg border border-gray-200">
+    <div
+      class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 border-b border-gray-200"
+    >
+      <div>
+        <h2 class="text-lg font-semibold">Meals</h2>
+        <p class="text-sm text-gray-500">Track your food intake</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button
+          class="p-2 hover:bg-gray-100 rounded-md"
+          (click)="handlePrevDay()"
+        >
+          <lucide-angular
+            size="20"
+            [img]="ChevronLeftIcon"
+            class="my-icon"
+          ></lucide-angular>
+        </button>
+
+        <div class="relative">
+          <button
+            class="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded-md"
+          >
+            <lucide-angular
+              [img]="CalendarIcon"
+              size="20"
+              class="my-icon"
+            ></lucide-angular>
+            <span class="text-sm">{{ selectedDate | date : "fullDate" }}</span>
+          </button>
+        </div>
+
+        <button
+          class="p-2 hover:bg-gray-100 rounded-md"
+          (click)="handleNextDay()"
+        >
+          <lucide-angular
+            size="20"
+            [img]="ChevronRightIcon"
+            class="my-icon"
+          ></lucide-angular>
+        </button>
+
+        <button
+          (click)="openModal()"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
+        >
+          Custom Log
+        </button>
+      </div>
+    </div>
+
+    <div class="divide-y divide-gray-200">
+      <p class="text-center text-gray-500 py-8">
+        No meals logged for this date
+      </p>
+    </div>
+  </div>
 </div>
+
+<app-custom-log-modal
+  [isCustomLogOpen]="isCustomLogOpen()"
+  (closeModal)="handleCloseModal()"
+>
+</app-custom-log-modal>
