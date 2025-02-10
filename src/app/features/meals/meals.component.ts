@@ -1,7 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { MealCardComponent } from './components/meal-card/meal-card.component';
 import { meals } from './models/meals.models';
-import { MealsToolbarComponent } from './components/meals-toolbar/meals-toolbar.component';
 import { FilterMealsService } from './services/filter-meals.service';
 import { AuthService } from '../../shared/services/auth/auth.service';
 import { RouterLink } from '@angular/router';
