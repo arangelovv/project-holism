@@ -9,7 +9,10 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/app/meals',
+    loadComponent: () =>
+      import('./features/landing/landing.component').then(
+        (c) => c.LandingComponent
+      ),
   },
   {
     path: 'auth',
