@@ -16,6 +16,8 @@ export const routes: Routes = [
   },
   {
     path: 'auth',
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectLoggedInToDashboard },
     loadComponent: () =>
       import('./features/auth/auth.component').then((c) => c.AuthComponent),
   },
