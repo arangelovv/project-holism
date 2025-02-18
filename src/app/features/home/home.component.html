@@ -1,182 +1,201 @@
 <div class="w-full h-full flex flex-col gap-6 px-6 py-6">
-  <!-- Toolbar Section; Abstract in a separate component -->
-  <div class="flex">
-    <div class="flex flex-col grow">
-      <Span class="text-slate-800 font-semibold text-2xl"
-        >Welcome back, {{ authService.user()?.displayName }}</Span
-      >
-      <span class="text-slate-500"
-        >Track your nutrition and fitness goals
-      </span>
-    </div>
-    <div class="flex items-center">
-      <img
-        [src]="
-          authService.user()?.photoURL
-            ? authService.user()?.photoURL
-            : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
-        "
-        alt="img"
-        class="w-10 h-10 rounded cursor-pointer"
-        routerLink="/app/user-profile"
-      />
-    </div>
-  </div>
+	<!-- Toolbar Section; Abstract in a separate component -->
+	<div class="flex">
+		<div class="flex flex-col grow">
+			<Span class="text-slate-800 font-semibold text-2xl"
+				>Welcome back, {{ authService.user()?.displayName }}</Span
+			>
+			<span class="text-slate-500"
+				>Track your nutrition and fitness goals
+			</span>
+		</div>
+		<div class="flex items-center">
+			<img
+				[src]="
+					authService.user()?.photoURL
+						? authService.user()?.photoURL
+						: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mMNz8YCBvYmnr3BQUPX__YsC_WtDuAevwg&s'
+				"
+				alt="img"
+				class="w-10 h-10 rounded cursor-pointer"
+				routerLink="/app/user-profile" />
+		</div>
+	</div>
 
-  <!-- Daily Overview Section -->
-  <div class="flex flex-col gap-3">
-    <div class="flex flex-col gap-2 justify-center md:flex-row">
-      <span class="grow text-slate-800 font-semibold text-lg md:text-xl"
-        >Daily Overview</span
-      >
-      <div
-        class="flex flex-row gap-2 px-1.5 py-1.5 rounded-lg border border-gray-200"
-      >
-        <button
-          class="font-semibold text-sm text-blue-600 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded"
-        >
-          Today
-        </button>
-        <button
-          class="font-semibold text-sm text-zinc-500 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded"
-        >
-          Last 7 Days
-        </button>
-        <button
-          class="font-semibold text-sm text-zinc-500 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded"
-        >
-          Last 30 Days
-        </button>
-        <button
-          class="font-semibold text-sm text-zinc-500 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded"
-        >
-          All Time
-        </button>
-      </div>
-    </div>
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-      <div class="flex flex-col gap-2 border rounded-md px-6 py-4">
-        <span class="text-gray-600 text-base">Calories</span>
-        <span class="text-slate-950 font-semibold text-2xl">780 / 2400cal</span>
-        <div class="h-2 rounded-full bg-gray-300 overflow-hidden">
-          <div
-            class="h-full rounded-full transition-all duration-500 bg-blue-600"
-            [style.width.%]="30"
-            [style.min-width.px]="8"
-          ></div>
-        </div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-          33% of daily goal
-        </p>
-      </div>
-      <div class="flex flex-col gap-2 border rounded-md px-6 py-4">
-        <span class="text-gray-600 text-base">Protein</span>
-        <span class="text-slate-950 font-semibold text-2xl">61 / 193g</span>
-        <div class="h-2 rounded-full bg-gray-300 overflow-hidden">
-          <div
-            class="h-full rounded-full transition-all duration-500 bg-blue-600"
-            [style.width.%]="30"
-            [style.min-width.px]="8"
-          ></div>
-        </div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-          32% of daily goal
-        </p>
-      </div>
-      <div class="flex flex-col gap-2 border rounded-md px-6 py-4">
-        <span class="text-gray-600 text-base">Carbs</span>
-        <span class="text-slate-950 font-semibold text-2xl">78 / 220g</span>
-        <div class="h-2 rounded-full bg-gray-300 overflow-hidden">
-          <div
-            class="h-full rounded-full transition-all duration-500 bg-blue-600"
-            [style.width.%]="30"
-            [style.min-width.px]="8"
-          ></div>
-        </div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-          35% of daily goal
-        </p>
-      </div>
-      <div class="flex flex-col gap-2 border rounded-md px-6 py-4">
-        <span class="text-gray-600 text-base">Fats</span>
-        <span class="text-slate-950 font-semibold text-2xl">18 / 61g</span>
-        <div class="h-2 rounded-full bg-gray-300 overflow-hidden">
-          <div
-            class="h-full rounded-full transition-all duration-500 bg-blue-600"
-            [style.width.%]="30"
-            [style.min-width.px]="8"
-          ></div>
-        </div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-          30% of daily goal
-        </p>
-      </div>
-    </div>
-  </div>
+	<!-- Daily Overview Section -->
+	<div class="flex flex-col gap-3">
+		<div class="flex flex-col gap-2 justify-center md:flex-row">
+			<span class="grow text-slate-800 font-semibold text-lg md:text-xl"
+				>Daily Overview</span
+			>
+			<div
+				class="flex flex-row gap-2 px-1.5 py-1.5 rounded-lg border border-gray-200">
+				<button
+					class="font-semibold text-sm text-blue-600 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded">
+					Today
+				</button>
+				<button
+					class="font-semibold text-sm text-zinc-500 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded">
+					Last 7 Days
+				</button>
+				<button
+					class="font-semibold text-sm text-zinc-500 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded">
+					Last 30 Days
+				</button>
+				<button
+					class="font-semibold text-sm text-zinc-500 px-0.5 py-0.5 md:px-2 md:py-0.5 rounded">
+					All Time
+				</button>
+			</div>
+		</div>
+		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+			<div class="flex flex-col gap-2 border rounded-md px-6 py-4">
+				<span class="text-gray-600 text-base">Calories</span>
+				<span class="text-slate-950 font-semibold text-2xl">
+					780 /
+					{{ authService.userData()?.nutritionalGoals?.caloriesGoal ?? 0 }}cal
+				</span>
+				<div class="h-2 rounded-full bg-gray-300 overflow-hidden">
+					<div
+						class="h-full rounded-full transition-all duration-500 bg-blue-600"
+						[style.width.%]="
+							(780 /
+								(authService.userData()?.nutritionalGoals?.caloriesGoal ?? 1)) *
+							100
+						"
+						[style.min-width.px]="8"></div>
+				</div>
+				<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+					{{
+						(780 /
+							(authService.userData()?.nutritionalGoals?.caloriesGoal ?? 1)) *
+							100 | number : "1.0-0"
+					}}% of daily goal
+				</p>
+			</div>
+			<div class="flex flex-col gap-2 border rounded-md px-6 py-4">
+				<span class="text-gray-600 text-base">Protein</span>
+				<span class="text-slate-950 font-semibold text-2xl">
+					61 / {{ authService.userData()?.nutritionalGoals?.proteinGoal ?? 0 }}g
+				</span>
+				<div class="h-2 rounded-full bg-gray-300 overflow-hidden">
+					<div
+						class="h-full rounded-full transition-all duration-500 bg-blue-600"
+						[style.width.%]="
+							(61 /
+								(authService.userData()?.nutritionalGoals?.proteinGoal ?? 1)) *
+							100
+						"
+						[style.min-width.px]="8"></div>
+				</div>
+				<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+					{{
+						(61 /
+							(authService.userData()?.nutritionalGoals?.proteinGoal ?? 1)) *
+							100 | number : "1.0-0"
+					}}% of daily goal
+				</p>
+			</div>
+			<div class="flex flex-col gap-2 border rounded-md px-6 py-4">
+				<span class="text-gray-600 text-base">Carbs</span>
+				<span class="text-slate-950 font-semibold text-2xl">
+					78 / {{ authService.userData()?.nutritionalGoals?.carbsGoal ?? 0 }}g
+				</span>
+				<div class="h-2 rounded-full bg-gray-300 overflow-hidden">
+					<div
+						class="h-full rounded-full transition-all duration-500 bg-blue-600"
+						[style.width.%]="
+							(78 /
+								(authService.userData()?.nutritionalGoals?.carbsGoal ?? 1)) *
+							100
+						"
+						[style.min-width.px]="8"></div>
+				</div>
+				<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+					{{
+						(78 / (authService.userData()?.nutritionalGoals?.carbsGoal ?? 1)) *
+							100 | number : "1.0-0"
+					}}% of daily goal
+				</p>
+			</div>
+			<div class="flex flex-col gap-2 border rounded-md px-6 py-4">
+				<span class="text-gray-600 text-base">Fats</span>
+				<span class="text-slate-950 font-semibold text-2xl">
+					18 / {{ authService.userData()?.nutritionalGoals?.fatGoal ?? 0 }}g
+				</span>
+				<div class="h-2 rounded-full bg-gray-300 overflow-hidden">
+					<div
+						class="h-full rounded-full transition-all duration-500 bg-blue-600"
+						[style.width.%]="
+							(18 / (authService.userData()?.nutritionalGoals?.fatGoal ?? 1)) *
+							100
+						"
+						[style.min-width.px]="8"></div>
+				</div>
+				<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+					{{
+						(18 / (authService.userData()?.nutritionalGoals?.fatGoal ?? 1)) *
+							100 | number : "1.0-0"
+					}}% of daily goal
+				</p>
+			</div>
+		</div>
+	</div>
 
-  <div class="rounded-lg border border-gray-200">
-    <div
-      class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 border-b border-gray-200"
-    >
-      <div>
-        <h2 class="text-lg font-semibold">Meals</h2>
-        <p class="text-sm text-gray-500">Track your food intake</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <button
-          class="p-2 hover:bg-gray-100 rounded-md"
-          (click)="handlePrevDay()"
-        >
-          <lucide-angular
-            size="20"
-            [img]="ChevronLeftIcon"
-            class="my-icon"
-          ></lucide-angular>
-        </button>
+	<div class="rounded-lg border border-gray-200">
+		<div
+			class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 border-b border-gray-200">
+			<div>
+				<h2 class="text-lg font-semibold">Meals</h2>
+				<p class="text-sm text-gray-500">Track your food intake</p>
+			</div>
+			<div class="flex items-center gap-2">
+				<button
+					class="p-2 hover:bg-gray-100 rounded-md"
+					(click)="handlePrevDay()">
+					<lucide-angular
+						size="20"
+						[img]="ChevronLeftIcon"
+						class="my-icon"></lucide-angular>
+				</button>
 
-        <div class="relative">
-          <button
-            class="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded-md"
-          >
-            <lucide-angular
-              [img]="CalendarIcon"
-              size="20"
-              class="my-icon"
-            ></lucide-angular>
-            <span class="text-sm">{{ selectedDate | date : "fullDate" }}</span>
-          </button>
-        </div>
+				<div class="relative">
+					<button
+						class="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded-md">
+						<lucide-angular
+							[img]="CalendarIcon"
+							size="20"
+							class="my-icon"></lucide-angular>
+						<span class="text-sm">{{ selectedDate | date : "fullDate" }}</span>
+					</button>
+				</div>
 
-        <button
-          class="p-2 hover:bg-gray-100 rounded-md"
-          (click)="handleNextDay()"
-        >
-          <lucide-angular
-            size="20"
-            [img]="ChevronRightIcon"
-            class="my-icon"
-          ></lucide-angular>
-        </button>
+				<button
+					class="p-2 hover:bg-gray-100 rounded-md"
+					(click)="handleNextDay()">
+					<lucide-angular
+						size="20"
+						[img]="ChevronRightIcon"
+						class="my-icon"></lucide-angular>
+				</button>
 
-        <button
-          (click)="openModal()"
-          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
-        >
-          Custom Log
-        </button>
-      </div>
-    </div>
+				<button
+					(click)="openModal()"
+					class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm">
+					Custom Log
+				</button>
+			</div>
+		</div>
 
-    <div class="divide-y divide-gray-200">
-      <p class="text-center text-gray-500 py-8">
-        No meals logged for this date
-      </p>
-    </div>
-  </div>
+		<div class="divide-y divide-gray-200">
+			<p class="text-center text-gray-500 py-8">
+				No meals logged for this date
+			</p>
+		</div>
+	</div>
 </div>
 
 <app-custom-log-modal
-  [isCustomLogOpen]="isCustomLogOpen()"
-  (closeModal)="handleCloseModal()"
->
+	[isCustomLogOpen]="isCustomLogOpen()"
+	(closeModal)="handleCloseModal()">
 </app-custom-log-modal>

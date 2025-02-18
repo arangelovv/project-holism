@@ -14,7 +14,12 @@ import {
 	where,
 	QueryConstraint,
 	UpdateData,
+	DocumentReference,
+	docData,
+	onSnapshot,
 } from "@angular/fire/firestore";
+import { Observable, from } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable({
 	providedIn: "root",
@@ -57,25 +62,6 @@ export class FirestoreService {
 		} else {
 			console.log(`No such document! ${collectionName}/${uid}`);
 			return null;
-		}
-	}
-
-	// Create a new document with auto-generated ID
-	public async createDoc<T extends DocumentData>(
-		collectionName: string,
-		data: T
-	) {
-		const collectionRef = collection(this.firestore, collectionName);
-
-		try {
-			const docRef = await addDoc(collectionRef, data);
-			console.log(
-				`Document successfully created in ${collectionName} with ID: ${docRef.id}`
-			);
-			return docRef.id;
-		} catch (error) {
-			console.error(`Error creating document in ${collectionName}:`, error);
-			throw error;
 		}
 	}
 
@@ -135,5 +121,15 @@ export class FirestoreService {
 			console.error(`Error getting documents from ${collectionName}:`, error);
 			throw error;
 		}
+	}
+
+	docData$<T>(collection: string, docId: string): Observable<T> {
+		const docRef = doc(this.firestore, collection, docId);
+		return new Observable<T>((subscriber) => {
+			const unsubscribe = onSnapshot(docRef, (doc) => {
+				subscriber.next(doc.data() as T);
+			});
+			return () => unsubscribe();
+		});
 	}
 }

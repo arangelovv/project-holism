@@ -6,7 +6,7 @@ import {
 	signInWithPopup,
 } from "@angular/fire/auth";
 import { AuthState, UserEntity } from "../../models/auth.models";
-import { serverTimestamp } from "firebase/firestore";
+import { serverTimestamp } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
 import { FirestoreService } from "../firestore/firestore.service";
 import { User } from "@angular/fire/auth";
@@ -19,17 +19,23 @@ export class AuthService {
 	private router = inject(Router);
 	private firestoreService = inject(FirestoreService);
 
-	// State with proper typing
-	private userState = signal<AuthState>({ user: null });
+	// Updated state to include userData
+	private userState = signal<AuthState>({ user: null, userData: null });
 
-	// Selector
+	// Updated selectors
 	user = computed(() => this.userState().user);
+	userData = computed(() => this.userState().userData);
 
 	constructor() {
-		// Auth source
 		authState(this.auth).subscribe((user) => {
-			this.userState.set({ user });
-			if (!user) {
+			if (user) {
+				this.firestoreService
+					.docData$<UserEntity>("users", user.uid)
+					.subscribe((userData) => {
+						this.userState.set({ user, userData: userData ?? null });
+					});
+			} else {
+				this.userState.set({ user: null, userData: null });
 				this.router.navigate(["/auth"]);
 			}
 		});
@@ -46,6 +52,20 @@ export class AuthService {
 				displayName: user.displayName ?? "",
 				photoURL: user.photoURL ?? "",
 			},
+			physicalDetails: {
+				height: 170,
+				weight: 70,
+				age: 25,
+				gender: "male",
+			},
+			nutritionalGoals: {
+				caloriesGoal: 2000,
+				proteinGoal: 150,
+				fatGoal: 70,
+				carbsGoal: 300,
+			},
+			activityLevel: "sedentary",
+			physiqueGoal: "weightLoss",
 		};
 	}
 
@@ -60,21 +80,31 @@ export class AuthService {
 				throw new Error("No user information received from Google Auth");
 			}
 
-			const userEntity = this.createUserEntity(user);
-			await this.firestoreService.setDoc("users", userEntity, user.uid);
+			const existingUser = await this.firestoreService.getDoc<UserEntity>(
+				"users",
+				user.uid
+			);
+
+			if (!existingUser) {
+				const userEntity = this.createUserEntity(user);
+				await this.firestoreService.setDoc("users", userEntity, user.uid);
+			}
 
 			console.info(`${user.displayName} signed in successfully.`);
 			await this.router.navigate(["/app/home"]);
 		} catch (error) {
 			console.error("Sign-in error:", error);
-			throw error; // Re-throw to allow handling by the caller
+			throw error;
 		}
 	}
 
-	async logout(): Promise<void> {
+	async signOut(): Promise<void> {
 		try {
 			await this.auth.signOut();
-			this.userState.set({ user: null });
+			this.userState.set({
+				user: null,
+				userData: null,
+			});
 			await this.router.navigate(["/auth"]);
 		} catch (error) {
 			console.error("Logout error:", error);
